@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
- * main - main block
- * Description - Write a program that prints the alphabet in lowercase,
+ * main - main
+ * Description - Write a program that prints the alphabet
  * Return: 0
  */
 int main(void)
@@ -18,11 +18,11 @@ int main(void)
 
 	while (c <= 'Z')
 	{
-		putchar(c);
+		purchar(c);
 		c++;
 	}
 
-	purchar ('\n');
+	purchar('\n');
 
 	return (0);
 }

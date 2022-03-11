@@ -22,7 +22,7 @@ int main(void)
 		c++;
 	}
 
-	purchar ('\n);
+	purchar ('\n');
 
 	return (0);
 }

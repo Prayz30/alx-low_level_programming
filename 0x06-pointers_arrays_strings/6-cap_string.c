@@ -1,5 +1,4 @@
-#include "main.h"
-#include <stdio.h>
+int check_seperators(char c);
 /**
  * cap_string - this is awesome.
  * @s: pointer to char params
@@ -7,16 +6,40 @@
  */
 char *cap_string(char *s)
 {
-	int i, j;
-	char delimeters[] = " \t\n,;.!?\"(){}";
+	int i = 0;
 
-	for (i = 0; s[i] != '\0'; i++)
+	while (s[i])
 	{
-		if (s[0] >= 97 && s[0] <= 122)
-			s[0] = s[0] - 32;
-		for (j = 0; delimeters[j] != '\0'; j++)
-			if (s[i] == delimeters[j] && s[i + 1] >= 97 && s[i + 1] <= 122)
-				s[i + 1] = s[i + 1] - 32;
+		if (i == 0 && (s[i] >= 'a' && s[i] <= 'z'))
+			s[i] -= 32;
+
+		if (check_seperators(s[i]) && (s[i + 1] >= 'a' && s[i + 1] <= 'z'))
+			s[i + 1] -= 32;
+
+		i++;
 	}
 
 	return (s);
+}
+
+/**
+ * check_seperators - Separators of words: space, tabulation, new line,
+ *  ,, ;, ., !, ?, /'"', (, ), {, and }
+ * @c: an input character
+ * Return: 1 if seperator, 0 otherwise
+ */
+
+int check_seperators(char c)
+{
+	int i = 0;
+	char seperators[13] = { ' ', '\t', '\n', ',', ';', '.', '!', '?',
+		'"', '(', ')', '{', '}' };
+
+	for (; i < 13; i++)
+	{
+		if (c == seperators[i])
+			return (1);
+	}
+
+	return (0);
+}

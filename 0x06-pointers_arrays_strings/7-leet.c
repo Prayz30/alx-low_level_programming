@@ -6,17 +6,23 @@
  */
 char *leet(char *c)
 {
-	int i = 0, j;
-	char subs[10] = {'4', '4', '3', '3', '0', '0', '7', '7', '1', '1'},
-	     str[10] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'l', 'L'};
+	char *cp = c;
+	char key[] = {'A', 'E', 'O', 'T', 'L'};
+	int value[] = {4, 3, 0, 7, 1};
+	unsigned int i;
 
-	while (s[i])
+	while (*c)
 	{
-		for (j = 0; j < 10; j++)
-			if (s[i] == str[j]
-				s[i] = subs[j];
+		for (i = 0; i < sizeof(key) / sizeof(char); i++)
+		{
+			/*32 is the difference between lower case letters and apper case letters*/
+			if (*c == key[i] || *c == key[i] + 32)
+			{
+				*c = 48 + value[i];
+			}
+		}
+		c++;
+	}
 
-				i++;
-				}
-				return (s);
-				}
+	return (cp);
+}

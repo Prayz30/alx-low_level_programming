@@ -1,23 +1,51 @@
 #include "main.h"
+#include <stdio.h>
+
+int _strlen_recursion(char *s);
+int helper_palindrome(char *s, int len);
 /**
- * wildcmp - compares two strings and returns 1 if the strings can be
- * considered identical, otherwise return 0
- * @s1: input string1
- * @s2: input string2
+ * _strlen_recursion - A function to obtain the length of the string s
+ * @s: input string2
  * Return: 1 if true, 0 if false
  */
-int wildcmp(char *s1, char *s2)
+int _strlen_recursion(char *s)
 {
-	if (*s1 == '\0')
+	if (!*s)
 	{
-		if (*s2 != '\0' && *s2 == '*')
-			return (wildcmp(s1, s2 + 1));
-		return (*s2 == '\0');
+		return (0);
 	}
+	return (_strlen_recursion(s + 1) + 1);
+}
 
-	if (*s2 == '*')
-		return (wildcmp(s1 + 1, s2) || wildcmp(s1, s2 + 1));
-	else if (*s1 == *s2)
-		return (wildcmp(s1 + 1, s2 + 1));
-	return (0);
+/**
+ * is_palindrome - A function that checks if s is a palindrome string
+ * @s: An input string
+ * Return: 1 if is string is a palindrome or 0 in otherwise
+ */
+int is_palindrome(char *s)
+{
+	int len;
+
+	len = _strlen_recursioni(s);
+	if (len <= 1)
+		return (1);
+	return (helper_palindrome(s, len));
+}
+
+/**
+ * helper_palindrome - A function with a revesed string
+ * @s: An input string
+ * @len: the length of the string s
+ * Return: A reverse string
+ */
+int helper_palindrome(char *s, int len)
+{
+	if (len <= 1)
+		return (1);
+	else if (*s == *(s + len - 1))
+	{
+		return (helper_palindrome(s + 1, len - 2));
+	}
+	else
+		return (0);
 }

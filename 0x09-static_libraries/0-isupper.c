@@ -4,7 +4,7 @@
  * @c: int type number
  * Return: 1 if uppercase, else 0
  */
-int _isupper(int c);
+int _isupper(int c)
 {
 	char uppercase = 'A';
 	int _isupper = 0;

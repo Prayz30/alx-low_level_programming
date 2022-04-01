@@ -1,4 +1,4 @@
- - Static libraries
+0x08. C - Static libraries
 
 This repository contains more projects introducing the use, purpose of static libraries. Below is a list of the projects following a description for each of them.
 

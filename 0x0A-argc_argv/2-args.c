@@ -8,16 +8,20 @@
  */
 int main(int argc, char *argv[])
 {
-	(void) argc;
+	int num1, num2, result;
 
-	if (argv[1] && argv[2])
+	if (argc != 3)
 	{
-		printf("%d\n", atoi(argv[1]) * atoi(argv[2]));
-		return (0);
+		printf("Error\n");
+		return (1);
 	}
 
 	else
-		printf("Error\n");
-
-	return (1);
+	{
+		num1 = atoi(argv[1]);
+		num2 = atoi(argv[2]);
+		result = num1 * num2;
+		printf("%d\n", result);
+		return (0);
+	}
 }

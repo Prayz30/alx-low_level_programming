@@ -1,14 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdlib.h>
+#include <string.h>
 /**
  * main - Check the code
  * @argc: number of arguments
  * @argv: arguments
  * Return: Nothing
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	int num1, num2, result;
+	unsigned long mul;
+	int i, j;
 
 	if (argc != 3)
 	{
@@ -16,12 +19,20 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 
-	else
+	for (i = 1; i < argc; i++)
 	{
-		num1 = atoi(argv[1]);
-		num2 = atoi(argv[2]);
-		result = num1 * num2;
-		printf("%d\n", result);
-		return (0);
+		for (j = 0; argv[i][j] != '\0'; j++)
+		{
+			if (argv[i][j] > 57 || argv[i][j] < 48)
+			{
+				printf("Error\n");
+				exit(98);
+			}
+		}
 	}
+	mul = atol(argv[1]) *  atol(argv[2]);
+	printf("%lu\n", mul);
+
+	return (0);
 }
+
